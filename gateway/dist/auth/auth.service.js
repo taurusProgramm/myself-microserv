@@ -21,13 +21,12 @@ let AuthService = class AuthService {
         this.authClient = authClient;
     }
     async registration(userDto) {
-        let user = this.authClient
+        this.authClient
             .send('create_user', new regis_user_request_dto_1.CreateUserRequest(userDto.email, userDto.username, userDto.password))
             .subscribe(user => {
             console.log('user: ', user);
             console.log(`user email is ${user.email}`);
         });
-        await console.debug('here: ', user);
     }
     getAll() {
         this.authClient
