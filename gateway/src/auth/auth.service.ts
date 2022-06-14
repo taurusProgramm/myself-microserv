@@ -10,15 +10,14 @@ export class AuthService {
         
     ){}
     
-    async registration(userDto: RegistrationUserDto) {
+    async registration(userDto: RegistrationUserDto, res) {
         this.authClient
-        .send('create_user', new CreateUserRequest(userDto.email, userDto.username, userDto.password))
+        .send('create_user', new CreateUserRequest(userDto))
         .subscribe(user => {
-            
+            res.json(user)
             console.log('user: ',user)
-            console.log(`user email is ${user.email}`)  
+             
         })
-        
       }
 
     getAll(){

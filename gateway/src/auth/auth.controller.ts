@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, OnModuleInit, Inject } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, OnModuleInit, Inject, Res } from "@nestjs/common";
 import { ApiTags, ApiOperation } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { LoginUserDto, RegistrationUserDto, Get2FAUserDto, GoogleAuthenticator } from "src/dto/user.dto";
@@ -17,8 +17,12 @@ export class AuthController  implements OnModuleInit {
 // }
 
 @Post("/registration")
-registration(@Body() userDto: RegistrationUserDto) {
-    return this.authService.registration(userDto)
+registration(@Body() userDto: RegistrationUserDto,@Res() res ) {
+    // const a = (b)=>{
+    //     res.json(b)
+    // }
+
+    this.authService.registration(userDto, res)
 }
 
 async onModuleInit(){

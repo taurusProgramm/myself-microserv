@@ -23,8 +23,8 @@ let AuthController = class AuthController {
         this.authService = authService;
         this.authClient = authClient;
     }
-    registration(userDto) {
-        return this.authService.registration(userDto);
+    registration(userDto, res) {
+        this.authService.registration(userDto, res);
     }
     async onModuleInit() {
         this.authClient.subscribeToResponseOf('create_user');
@@ -40,8 +40,9 @@ let AuthController = class AuthController {
 __decorate([
     (0, common_1.Post)("/registration"),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_dto_1.RegistrationUserDto]),
+    __metadata("design:paramtypes", [user_dto_1.RegistrationUserDto, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "registration", null);
 __decorate([

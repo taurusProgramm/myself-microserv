@@ -2,16 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUserRequest = void 0;
 class CreateUserRequest {
-    constructor(email, username, password) {
-        this.email = email;
-        this.username = username;
-        this.password = password;
+    constructor(user) {
+        this.user = user;
     }
     toString() {
         return JSON.stringify({
-            email: this.email,
-            username: this.username,
-            password: this.password,
+            email: this.user.email,
+            username: this.user.username,
+            password: this.user.password,
         });
     }
 }
