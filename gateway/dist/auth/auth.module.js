@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const auth_controller_1 = require("./auth.controller");
 const microservices_1 = require("@nestjs/microservices");
 const auth_service_1 = require("./auth.service");
+const fs_1 = require("fs");
 let AuthModule = class AuthModule {
 };
 AuthModule = __decorate([
@@ -24,7 +25,16 @@ AuthModule = __decorate([
                     options: {
                         client: {
                             clientId: 'auth',
-                            brokers: ['localhost:9092'],
+                            brokers: ['rc1a-qcqk5g0b44iq8cns.mdb.yandexcloud.net:9091'],
+                            ssl: {
+                                rejectUnauthorized: false,
+                                ca: [(0, fs_1.readFileSync)('/usr/local/share/ca-certificates/Yandex/YandexCA.crt', 'utf-8')],
+                            },
+                            sasl: {
+                                mechanism: 'scram-sha-512',
+                                username: 'test',
+                                password: 'rootroot'
+                            },
                         },
                         consumer: {
                             groupId: 'auth-consumer',

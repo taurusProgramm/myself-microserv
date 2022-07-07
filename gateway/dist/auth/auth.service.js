@@ -22,7 +22,7 @@ let AuthService = class AuthService {
     }
     async registration(userDto, res) {
         this.authClient
-            .send('create_user', new regis_user_request_dto_1.CreateUserRequest(userDto))
+            .send('test', new regis_user_request_dto_1.CreateUserRequest(userDto))
             .subscribe(user => {
             res.json(user);
             console.log('user: ', user);

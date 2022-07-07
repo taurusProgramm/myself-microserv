@@ -12,7 +12,7 @@ export class AuthService {
     
     async registration(userDto: RegistrationUserDto, res) {
         this.authClient
-        .send('create_user', new CreateUserRequest(userDto))
+        .send('test', new CreateUserRequest(userDto))
         .subscribe(user => {
             res.json(user)
             console.log('user: ',user)

@@ -7,7 +7,7 @@ import {RegistrationUserDto} from "src/dto/user.dto"
 export class AuthController {
     constructor(private authService: AuthService) {}
 
-@MessagePattern('create_user')
+@MessagePattern('test')
 async registration(data: any) {
     return await this.authService.registration(data.value);
   }
